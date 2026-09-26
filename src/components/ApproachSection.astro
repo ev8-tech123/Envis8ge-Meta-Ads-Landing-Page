@@ -1,0 +1,29 @@
+---
+import { approach } from "../data/content";
+import SectionHeading from "./SectionHeading.astro";
+---
+
+<section class="bg-[var(--color-background)]">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 py-16 sm:py-20">
+    <SectionHeading headline={approach.headline} supporting={approach.supporting} />
+
+    <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {approach.steps.map((step) => (
+        <div class="rounded-[var(--radius-lg)] border border-[var(--color-border)] p-6">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-2xl font-bold text-[var(--color-primary)]">{step.number}</span>
+            <h3 class="text-lg font-bold text-[var(--color-neutral-900)]">{step.title}</h3>
+          </div>
+          <ul class="space-y-2">
+            {step.items.map((item) => (
+              <li class="flex items-start gap-2 text-sm text-[var(--color-neutral-600)]">
+                <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-[var(--color-primary)]" aria-hidden="true"></span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

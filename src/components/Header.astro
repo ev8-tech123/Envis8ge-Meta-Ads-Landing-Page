@@ -1,0 +1,20 @@
+---
+// Deliberately minimal: no nav links, no menu. SOP mobile checklist calls for
+// "no unnecessary navigation links" / "no distracting website header links" so
+// this ad-traffic landing page keeps a single path to the CTA.
+import { brand, cta } from "../data/content";
+import CtaButton from "./CtaButton.astro";
+---
+
+<header class="w-full border-b border-[var(--color-border)] bg-[var(--color-background)]">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 py-4 flex items-center justify-between gap-4">
+    <img
+      src="/envis8ge-logo-transparent.png"
+      alt={brand.name}
+      class="h-8 sm:h-9 w-auto"
+    />
+    <CtaButton href="#lead-form" size="md" class="!px-4 !py-2 sm:!px-6 sm:!py-3 text-sm">
+      {cta.primary}
+    </CtaButton>
+  </div>
+</header>

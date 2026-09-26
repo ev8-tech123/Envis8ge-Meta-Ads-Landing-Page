@@ -1,0 +1,29 @@
+---
+interface Props {
+  href?: string;
+  variant?: "primary" | "secondary";
+  size?: "sm" | "md" | "lg";
+  class?: string;
+}
+
+const { href = "#lead-form", variant = "primary", size = "lg", class: className = "" } = Astro.props;
+
+const base =
+  "inline-flex items-center justify-center rounded-[var(--radius-pill)] font-semibold text-center transition-colors duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-primary)]";
+
+const sizes = {
+  sm: "px-5 py-2 text-sm",
+  md: "px-6 py-3 text-sm",
+  lg: "px-8 py-4 text-base sm:text-lg",
+};
+
+const variants = {
+  primary: "bg-[var(--color-primary)] text-black hover:bg-[var(--color-primary-hover)]",
+  secondary:
+    "bg-transparent text-[var(--color-foreground)] border-2 border-[var(--color-neutral-800)] hover:border-[var(--color-primary)] hover:text-[var(--color-primary-text)]",
+};
+---
+
+<a href={href} class={`${base} ${sizes[size]} ${variants[variant]} ${className}`}>
+  <slot />
+</a>

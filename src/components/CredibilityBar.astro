@@ -1,0 +1,25 @@
+---
+import { credibility } from "../data/content";
+---
+
+<section class="bg-[var(--color-neutral-900)] text-white">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 py-8 sm:py-10">
+    <div class="flex flex-wrap justify-center gap-3 sm:gap-4">
+      {credibility.pills.map((pill) => (
+        <span class="rounded-[var(--radius-pill)] border border-white/20 px-4 py-2 text-sm sm:text-base font-medium">
+          {pill}
+        </span>
+      ))}
+    </div>
+
+    <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 text-center">
+      {credibility.stats.map((stat) => (
+        <div>
+          <p class="text-2xl sm:text-3xl font-bold text-[var(--color-primary)]">{stat.value}</p>
+          <p class="mt-1 text-sm text-white/70">{stat.label}</p>
+        </div>
+      ))}
+    </div>
+    <p class="mt-6 text-center text-xs text-white/50">{credibility.note}</p>
+  </div>
+</section>

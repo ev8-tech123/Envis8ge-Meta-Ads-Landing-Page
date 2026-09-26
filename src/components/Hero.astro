@@ -1,0 +1,50 @@
+---
+import { hero } from "../data/content";
+import CtaButton from "./CtaButton.astro";
+---
+
+<section class="relative overflow-hidden bg-[var(--color-background)]">
+  <div
+    class="pointer-events-none absolute -top-24 -right-24 h-72 w-72 sm:h-96 sm:w-96 rounded-full opacity-30 blur-3xl"
+    style="background: linear-gradient(124deg, #bdf3d3 0%, #20c1fa 60%);"
+    aria-hidden="true"
+  >
+  </div>
+
+  <div class="relative mx-auto max-w-6xl px-4 sm:px-6 pt-10 pb-14 sm:pt-16 sm:pb-20 grid gap-10 md:grid-cols-2 md:items-center">
+    <div>
+      <p class="text-sm font-semibold uppercase tracking-wide text-[var(--color-primary-text)] mb-4">
+        {hero.eyebrow}
+      </p>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight text-[var(--color-neutral-900)]">
+        {hero.headline}
+      </h1>
+      <p class="mt-5 text-base sm:text-lg text-[var(--color-neutral-600)] max-w-xl">
+        {hero.supporting}
+      </p>
+      <div class="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4">
+        <CtaButton href="#lead-form" variant="primary" size="sm">{hero.primaryCta}</CtaButton>
+        <CtaButton href="#lead-form" variant="secondary" size="sm">{hero.secondaryCta}</CtaButton>
+      </div>
+    </div>
+
+    <div class="rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-neutral-100)] p-5 sm:p-8">
+      <p class="text-xs font-semibold uppercase tracking-wide text-[var(--color-neutral-500)] mb-5">
+        The Path We Build
+      </p>
+      <ol class="flex flex-col gap-0">
+        {hero.journey.map((step, i) => (
+          <li class="flex items-start gap-3">
+            <div class="flex flex-col items-center">
+              <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[var(--color-primary)] text-black text-xs font-bold">
+                {i + 1}
+              </span>
+              {i < hero.journey.length - 1 && <span class="h-3 sm:h-4 w-px bg-[var(--color-border)]" aria-hidden="true"></span>}
+            </div>
+            <span class="leading-7 text-sm sm:text-base font-medium text-[var(--color-neutral-800)]">{step}</span>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </div>
+</section>

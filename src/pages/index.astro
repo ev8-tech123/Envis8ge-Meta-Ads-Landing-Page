@@ -1,17 +1,42 @@
 ---
-
+// Section order follows the SOP's "Final Recommended Page Flow" exactly:
+// 01 Hero, 02 Credibility, 03 Case Studies, 04 Problem, 05 Approach,
+// 06 How It Works, 07 Funnel, 08 Comparison, 09 Testimonials,
+// 10 Who It's For, 11 FAQ, 12 Final CTA + Lead Form.
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import CredibilityBar from "../components/CredibilityBar.astro";
+import CaseStudies from "../components/CaseStudies.astro";
+import ProblemSection from "../components/ProblemSection.astro";
+import ApproachSection from "../components/ApproachSection.astro";
+import HowItWorks from "../components/HowItWorks.astro";
+import FunnelSection from "../components/FunnelSection.astro";
+import ComparisonSection from "../components/ComparisonSection.astro";
+import TestimonialsSection from "../components/TestimonialsSection.astro";
+import WhoItsFor from "../components/WhoItsFor.astro";
+import FaqSection from "../components/FaqSection.astro";
+import FinalCta from "../components/FinalCta.astro";
+import LeadForm from "../components/LeadForm.astro";
+import Footer from "../components/Footer.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout>
+  <Header />
+  <main>
+    <Hero />
+    <CredibilityBar />
+    <CaseStudies />
+    <ProblemSection />
+    <ApproachSection />
+    <HowItWorks />
+    <FunnelSection />
+    <ComparisonSection />
+    <TestimonialsSection />
+    <WhoItsFor />
+    <FaqSection />
+    <FinalCta />
+    <LeadForm />
+  </main>
+  <Footer />
+</BaseLayout>

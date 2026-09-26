@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+/* Self-hosted brand font (matches envis8ge.com, which loads Montserrat via next/font). */
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("https://fonts.gstatic.com/s/montserrat/v29/JTUSjIg1_i6t8kCHKm459Wlhzg.woff2") format("woff2");
+}
+
+/*
+  Design tokens pulled directly from envis8ge.com's shipped CSS (--primary, --success,
+  --warning, --error, neutral scale and radius values match the live site's variables).
+  This keeps the landing page visually part of the Envis8ge brand without copying any
+  layout, markup or copy from the existing site.
+*/
+@theme {
+  --font-sans: "Montserrat", "Montserrat Fallback", ui-sans-serif, system-ui, sans-serif;
+
+  --color-background: #ffffff;
+  --color-foreground: #000000;
+
+  --color-primary: #02baf9;
+  --color-primary-hover: #00a6e0;
+  --color-primary-tint: #9fe7ff;
+  --color-primary-text: #007a9e;
+  /* Pale blue section background (envis8ge.com "What Clients Say" section). */
+  --color-tint: #f3fcff;
+  --color-primary-foreground: #000000;
+
+  --color-accent: #9fe7ff;
+  --color-accent-foreground: #000000;
+
+  --color-success: #1fa971;
+  --color-warning: #e0a400;
+  --color-error: #d64545;
+
+  --color-neutral-100: #fafafa;
+  --color-neutral-200: #e5e5e5;
+  --color-neutral-300: #c4c4c4;
+  --color-neutral-400: #9e9e9e;
+  --color-neutral-500: #757575;
+  --color-neutral-600: #484848;
+  --color-neutral-700: #303030;
+  --color-neutral-800: #1b1b1b;
+  --color-neutral-900: #000000;
+
+  --color-border: #e5e5e5;
+
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-pill: 50px;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    color: var(--color-foreground);
+    background: var(--color-background);
+  }
+
+  /* Keeps the fixed mobile sticky CTA bar from covering the last section's content. */
+  body.has-sticky-cta {
+    padding-bottom: 4.5rem;
+  }
+
+  @media (min-width: 768px) {
+    body.has-sticky-cta {
+      padding-bottom: 0;
+    }
+  }
+}

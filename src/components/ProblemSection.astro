@@ -1,0 +1,35 @@
+---
+import { problem } from "../data/content";
+import SectionHeading from "./SectionHeading.astro";
+---
+
+<section class="bg-[var(--color-neutral-100)]">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 py-16 sm:py-20">
+    <SectionHeading headline={problem.headline} />
+
+    <ul class="mt-10 grid gap-4 sm:grid-cols-2 max-w-4xl mx-auto">
+      {problem.points.map((point) => (
+        <li class="flex items-start gap-3 rounded-[var(--radius-md)] bg-[var(--color-background)] border border-[var(--color-border)] p-4">
+          <span class="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[var(--color-error)]/10 text-[var(--color-error)]" aria-hidden="true">
+            !
+          </span>
+          <span class="text-[var(--color-neutral-700)]">{point}</span>
+        </li>
+      ))}
+    </ul>
+
+    <div class="mt-12 text-center max-w-2xl mx-auto">
+      <p class="text-base sm:text-lg font-medium text-[var(--color-neutral-800)]">{problem.reframe}</p>
+      <div class="mt-5 flex flex-wrap justify-center items-center gap-2">
+        {problem.journey.map((step, i) => (
+          <>
+            <span class="rounded-[var(--radius-pill)] bg-[var(--color-primary-tint)] text-[var(--color-primary-text)] px-4 py-2 text-sm font-semibold">
+              {step}
+            </span>
+            {i < problem.journey.length - 1 && <span class="text-[var(--color-neutral-400)]" aria-hidden="true">&rarr;</span>}
+          </>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

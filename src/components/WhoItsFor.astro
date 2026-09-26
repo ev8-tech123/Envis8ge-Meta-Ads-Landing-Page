@@ -1,0 +1,36 @@
+---
+import { whoItsFor } from "../data/content";
+import SectionHeading from "./SectionHeading.astro";
+---
+
+<section class="bg-[var(--color-neutral-100)]">
+  <div class="mx-auto max-w-5xl px-4 sm:px-6 py-16 sm:py-20">
+    <SectionHeading headline={whoItsFor.headline} />
+
+    <div class="mt-10 grid gap-6 md:grid-cols-2">
+      <div class="rounded-[var(--radius-lg)] border border-[var(--color-success)]/30 bg-[var(--color-background)] p-6 sm:p-7">
+        <h3 class="text-lg font-bold text-[var(--color-success)]">{whoItsFor.goodFitTitle}</h3>
+        <ul class="mt-4 space-y-3">
+          {whoItsFor.goodFit.map((point) => (
+            <li class="flex items-start gap-2 text-[var(--color-neutral-700)]">
+              <span class="mt-0.5 text-[var(--color-success)]" aria-hidden="true">&check;</span>
+              {point}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="rounded-[var(--radius-lg)] border border-[var(--color-neutral-300)] bg-[var(--color-background)] p-6 sm:p-7">
+        <h3 class="text-lg font-bold text-[var(--color-neutral-600)]">{whoItsFor.notFitTitle}</h3>
+        <ul class="mt-4 space-y-3">
+          {whoItsFor.notFit.map((point) => (
+            <li class="flex items-start gap-2 text-[var(--color-neutral-600)]">
+              <span class="mt-0.5 text-[var(--color-neutral-400)]" aria-hidden="true">&times;</span>
+              {point}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

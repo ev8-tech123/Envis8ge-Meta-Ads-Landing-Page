@@ -1,0 +1,17 @@
+---
+// Mobile sticky CTA bar (SOP mobile checklist: "Consider a sticky CTA"). Hidden on
+// desktop where the header CTA and repeated in-page CTAs are already visible.
+import { cta } from "../data/content";
+---
+
+<div
+  class="fixed bottom-0 inset-x-0 z-40 md:hidden border-t border-[var(--color-border)] bg-[var(--color-background)]/95 backdrop-blur px-4 py-3"
+  style="padding-bottom: max(0.75rem, env(safe-area-inset-bottom));"
+>
+  <a
+    href="#lead-form"
+    class="block w-full text-center rounded-[var(--radius-pill)] bg-[var(--color-primary)] text-black font-semibold py-3 text-base hover:bg-[var(--color-primary-hover)] transition-colors"
+  >
+    {cta.primary}
+  </a>
+</div>

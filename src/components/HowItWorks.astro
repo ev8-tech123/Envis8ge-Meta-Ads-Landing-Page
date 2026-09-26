@@ -1,0 +1,27 @@
+---
+import { howItWorks, cta } from "../data/content";
+import SectionHeading from "./SectionHeading.astro";
+import CtaButton from "./CtaButton.astro";
+---
+
+<section class="bg-[var(--color-neutral-100)]">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 py-16 sm:py-20">
+    <SectionHeading headline={howItWorks.headline} />
+
+    <ol class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {howItWorks.steps.map((step) => (
+        <li class="rounded-[var(--radius-lg)] bg-[var(--color-background)] border border-[var(--color-border)] p-6">
+          <span class="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--color-primary)] text-black font-bold">
+            {step.number}
+          </span>
+          <h3 class="mt-4 text-lg font-bold text-[var(--color-neutral-900)]">{step.title}</h3>
+          <p class="mt-2 text-sm text-[var(--color-neutral-600)]">{step.description}</p>
+        </li>
+      ))}
+    </ol>
+
+    <div class="mt-12 text-center">
+      <CtaButton href="#lead-form" variant="primary">{cta.primary}</CtaButton>
+    </div>
+  </div>
+</section>

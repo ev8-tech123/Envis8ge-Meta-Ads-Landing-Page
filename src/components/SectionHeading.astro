@@ -1,0 +1,27 @@
+---
+interface Props {
+  eyebrow?: string;
+  headline: string;
+  supporting?: string;
+  align?: "left" | "center";
+}
+
+const { eyebrow, headline, supporting, align = "center" } = Astro.props;
+const alignClass = align === "center" ? "text-center mx-auto" : "text-left";
+---
+
+<div class={`max-w-3xl ${alignClass}`}>
+  {eyebrow && (
+    <p class="text-sm font-semibold uppercase tracking-wide text-[var(--color-primary-text)] mb-3">
+      {eyebrow}
+    </p>
+  )}
+  <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight text-[var(--color-neutral-900)]">
+    {headline}
+  </h2>
+  {supporting && (
+    <p class="mt-4 text-base sm:text-lg text-[var(--color-neutral-600)]">
+      {supporting}
+    </p>
+  )}
+</div>

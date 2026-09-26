@@ -1,0 +1,118 @@
+---
+import { testimonials } from "../data/content";
+
+// The list is rendered twice; the track slides left by exactly one copy (-50%),
+// so when the animation restarts the second copy sits where the first began — no jump.
+const copies = [false, true]; // true = duplicate (hidden from assistive tech)
+---
+
+<section class="bg-[var(--color-tint)] py-16 sm:py-20 lg:py-24">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6">
+    <h2 class="text-center text-2xl sm:text-3xl md:text-4xl font-bold leading-tight text-black">
+      {testimonials.headline}
+    </h2>
+  </div>
+
+  <div class="marquee mt-10" role="region" aria-label={testimonials.headline}>
+    <div class="marquee-track">
+      {copies.map((isDuplicate) => (
+        <ul class="marquee-list" aria-hidden={isDuplicate ? "true" : undefined}>
+          {testimonials.images.map((image) => (
+            <li class="marquee-item" style={`--ratio: ${image.width / image.height}`}>
+              <img
+                src={image.src}
+                alt={isDuplicate ? "" : image.alt}
+                width={image.width}
+                height={image.height}
+                decoding="async"
+                class="block h-auto w-full"
+              />
+            </li>
+          ))}
+        </ul>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .marquee {
+    --gap: 1rem;
+    --pad: 0.75rem;
+    /* Screenshot height on desktop (matches envis8ge.com) — close to native, so text is readable. */
+    --img-h: 136px;
+    /* Max card width per breakpoint: ~1 card on mobile, ~2 on tablet. */
+    --card-max: calc(100vw - 3rem);
+    overflow: hidden;
+    /* Soft fade at both edges so cards glide in/out rather than being hard-clipped. */
+    mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+  }
+
+  @media (min-width: 640px) {
+    .marquee {
+      --card-max: calc(50vw - 1.5rem);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .marquee {
+      --card-max: 760px; /* no clamp in practice: cards take their natural width (~3 on a 1920px screen) */
+      mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    }
+  }
+
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    /* ~105px/s, the same pace as envis8ge.com. Pauses on hover so a review can be read. */
+    animation: marquee-scroll 50s linear infinite;
+  }
+
+  .marquee:hover .marquee-track {
+    animation-play-state: paused;
+  }
+
+  .marquee-list {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: var(--gap);
+    /* Trailing gap so the seam between the two copies matches the gap between cards. */
+    padding-right: var(--gap);
+    /* Room for the card shadow, which overflow:hidden would otherwise clip. */
+    padding-block: 0.25rem;
+  }
+
+  /* White card whose width follows the screenshot's own aspect ratio (never stretched or cropped). */
+  .marquee-item {
+    flex: 0 0 auto;
+    width: min(calc(var(--img-h) * var(--ratio) + 2 * var(--pad)), var(--card-max));
+    padding: var(--pad);
+    background: #fff;
+    border-radius: 0.75rem;
+    box-shadow: 0 1px 2px rgb(0 0 0 / 0.06);
+  }
+
+  @keyframes marquee-scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  /* Respect reduced-motion settings: no auto-scroll; visitors can swipe instead. */
+  @media (prefers-reduced-motion: reduce) {
+    .marquee {
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .marquee::-webkit-scrollbar {
+      display: none;
+    }
+    .marquee-track {
+      animation: none;
+    }
+  }
+</style>

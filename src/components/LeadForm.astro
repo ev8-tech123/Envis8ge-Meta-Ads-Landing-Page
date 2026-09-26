@@ -1,0 +1,176 @@
+---
+import { leadForm, thankYou } from "../data/content";
+
+// Make.com custom webhook: Make handles everything after submission (incl. the internal email).
+// Not a secret — the browser posts to it directly, so it is visible in page source by design.
+const MAKE_WEBHOOK_URL = "https://hook.eu2.make.com/8hfq8ru44tksdw4iewoyqc8qw0xdssji";
+const HONEYPOT_FIELD = "nickname";
+
+const inputClass =
+  "w-full rounded-[var(--radius-md)] border border-[var(--color-neutral-300)] bg-[var(--color-background)] px-4 py-3 text-base text-[var(--color-neutral-900)] placeholder:text-[var(--color-neutral-400)] focus:border-[var(--color-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]/30";
+
+const labelClass = "block text-sm font-semibold text-[var(--color-neutral-800)] mb-2";
+
+const fieldEntries = Object.entries(leadForm.fields);
+---
+
+<section id="lead-form" class="bg-[var(--color-background)] scroll-mt-4">
+  <div class="mx-auto max-w-2xl px-4 sm:px-6 py-16 sm:py-20">
+    <div class="text-center mb-10">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-[var(--color-neutral-900)]">{leadForm.headline}</h2>
+      <p class="mt-4 text-base sm:text-lg text-[var(--color-neutral-600)]">{leadForm.supporting}</p>
+    </div>
+
+    <!-- Submits JSON to the Make.com webhook, which sends the internal notification (see script below). -->
+    <form action={MAKE_WEBHOOK_URL} method="post" class="space-y-5" data-form="lead-capture" data-honeypot={HONEYPOT_FIELD}>
+      <!-- Honeypot: hidden from people and assistive tech; if a bot fills it, nothing is sent. -->
+      <div class="absolute -left-[9999px] h-px w-px overflow-hidden" aria-hidden="true">
+        <label for={HONEYPOT_FIELD}>Leave this field empty</label>
+        <input id={HONEYPOT_FIELD} name={HONEYPOT_FIELD} type="text" tabindex="-1" autocomplete="off" />
+      </div>
+
+      {fieldEntries.map(([key, field]) => (
+        <div>
+          <label class={labelClass} for={key}>
+            {field.label}
+            {field.required && <span class="text-[var(--color-error)]"> *</span>}
+          </label>
+          <input
+            id={key}
+            name={key}
+            type={field.type}
+            required={field.required}
+            class={inputClass}
+          />
+        </div>
+      ))}
+
+      <fieldset>
+        <legend class={labelClass}>{leadForm.qualification.runningAds.label}</legend>
+        <div class="flex flex-wrap gap-2">
+          {leadForm.qualification.runningAds.options.map((option) => (
+            <label class="cursor-pointer rounded-[var(--radius-pill)] border border-[var(--color-neutral-300)] px-4 py-2 text-sm has-[:checked]:border-[var(--color-primary)] has-[:checked]:bg-[var(--color-primary-tint)]/40 has-[:checked]:text-[var(--color-primary-text)]">
+              <input type="radio" name="runningAds" value={option} required class="sr-only" />
+              {option}
+            </label>
+          ))}
+        </div>
+      </fieldset>
+
+      <div>
+        <label class={labelClass} for="budget">{leadForm.qualification.budget.label}</label>
+        <select id="budget" name="budget" required class={inputClass}>
+          <option value="" disabled selected>Select an option</option>
+          {leadForm.qualification.budget.options.map((option) => (
+            <option value={option}>{option}</option>
+          ))}
+        </select>
+      </div>
+
+      <div>
+        <label class={labelClass} for="challenge">{leadForm.qualification.challenge.label}</label>
+        <select id="challenge" name="challenge" required class={inputClass}>
+          <option value="" disabled selected>Select an option</option>
+          {leadForm.qualification.challenge.options.map((option) => (
+            <option value={option}>{option}</option>
+          ))}
+        </select>
+      </div>
+
+      <p class="hidden text-sm font-medium text-[var(--color-error)]" role="alert" data-form-error>
+        {leadForm.errorMessage}
+      </p>
+
+      <button
+        type="submit"
+        class="w-full rounded-[var(--radius-pill)] bg-[var(--color-primary)] text-black font-semibold py-4 text-base sm:text-lg hover:bg-[var(--color-primary-hover)] transition-colors disabled:opacity-60 disabled:cursor-wait"
+        data-submit-label={leadForm.submitLabel}
+        data-sending-label={leadForm.sendingLabel}
+      >
+        {leadForm.submitLabel}
+      </button>
+    </form>
+
+    <div class="hidden text-center" role="status" tabindex="-1" data-form-success>
+      <span class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-[var(--color-success)]/10 text-[var(--color-success)] text-2xl font-bold mb-6">
+        &check;
+      </span>
+      <h3 class="text-xl sm:text-2xl font-bold text-[var(--color-neutral-900)]">{thankYou.headline}</h3>
+      <ul class="mt-6 space-y-3 text-left max-w-md mx-auto">
+        {thankYou.points.map((point) => (
+          <li class="flex items-start gap-3 text-[var(--color-neutral-700)]">
+            <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--color-primary)]" aria-hidden="true"></span>
+            {point}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>("form[data-form='lead-capture']");
+  const success = document.querySelector<HTMLElement>("[data-form-success]");
+  const errorBox = form?.querySelector<HTMLElement>("[data-form-error]");
+  const button = form?.querySelector<HTMLButtonElement>("button[type='submit']");
+
+  let submitting = false;
+
+  const showSuccess = () => {
+    form?.classList.add("hidden");
+    success?.classList.remove("hidden");
+    success?.focus();
+  };
+
+  form?.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    if (submitting || !button || !errorBox || !success) return;
+    if (!form.reportValidity()) return;
+
+    const data = new FormData(form);
+    const value = (key: string) => String(data.get(key) ?? "").trim();
+
+    // Honeypot filled → almost certainly a bot: show success but send nothing.
+    if (value(form.dataset.honeypot ?? "")) {
+      showSuccess();
+      return;
+    }
+
+    // Field names expected by the Make.com scenario.
+    const payload = {
+      name: value("name"),
+      companyName: value("company"),
+      email: value("email"),
+      contactNumber: value("phone"),
+      websiteSocial: value("website"),
+      serviceProduct: value("offer"),
+      advertisingGoal: value("goal"),
+      runningMetaAds: value("runningAds"),
+      monthlyBudget: value("budget"),
+      biggestChallenge: value("challenge"),
+      date: new Date().toISOString(), // UTC, e.g. 2026-09-26T04:43:05.123Z
+    };
+
+    submitting = true;
+    errorBox.classList.add("hidden");
+    button.disabled = true;
+    button.textContent = button.dataset.sendingLabel ?? "";
+
+    try {
+      const res = await fetch(form.action, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+        signal: AbortSignal.timeout(20_000),
+      });
+      if (!res.ok) throw new Error(`Webhook responded ${res.status}`);
+      showSuccess();
+    } catch (err) {
+      console.error("[lead-form] Submission failed:", err);
+      errorBox.classList.remove("hidden");
+      button.disabled = false;
+      button.textContent = button.dataset.submitLabel ?? "";
+      submitting = false;
+    }
+  });
+</script>
