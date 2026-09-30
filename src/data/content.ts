@@ -39,11 +39,10 @@ export const credibility = {
   headline: "What We Focus On",
   pills: ["Meta Ads Strategy", "Lead Generation", "Funnel Optimisation", "Campaign Management"],
   stats: [
-    { value: "[VERIFIED STAT REQUIRED]", label: "Campaigns Managed" },
-    { value: "[VERIFIED STAT REQUIRED]", label: "Ad Spend Managed" },
-    { value: "[VERIFIED STAT REQUIRED]", label: "Industries Worked With" },
+    { value: "10+", label: "Years of Experience" },
+    { value: "$5,000+", label: "Ad Spend Managed" },
+    { value: "42+", label: "Industries Served" },
   ],
-  note: "Only verified, Envis8ge-supported figures will be published here.",
 };
 
 export const caseStudies = {
