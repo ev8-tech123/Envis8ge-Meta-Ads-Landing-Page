@@ -10,6 +10,8 @@ import SectionHeading from "./SectionHeading.astro";
     <div class="mt-10 grid gap-6 md:grid-cols-2">
       {caseStudies.items.map((item) => (
         <div class="rounded-[var(--radius-lg)] border border-[var(--color-border)] p-6 sm:p-7">
+          <h3 class="mb-5 text-xl sm:text-2xl font-bold text-[var(--color-neutral-900)]">{item.name}</h3>
+
           <p class="text-xs font-semibold uppercase tracking-wide text-[var(--color-primary-text)]">Client / Industry</p>
           <p class="mt-1 font-semibold text-[var(--color-neutral-800)]">{item.client}</p>
 
@@ -20,10 +22,11 @@ import SectionHeading from "./SectionHeading.astro";
           <p class="mt-1 text-[var(--color-neutral-600)]">{item.whatWeChanged}</p>
 
           <p class="mt-5 text-xs font-semibold uppercase tracking-wide text-[var(--color-primary-text)]">Result</p>
-          <p class="mt-1 font-semibold text-[var(--color-neutral-900)]">{item.result}</p>
+          <p class="mt-1 text-2xl sm:text-3xl font-bold text-[var(--color-primary-text)]">{item.result.value}</p>
+          <p class="mt-1 font-semibold text-[var(--color-neutral-900)]">{item.result.label}</p>
+          <p class="mt-1 text-[var(--color-neutral-600)]">{item.result.detail}</p>
         </div>
       ))}
     </div>
-    <p class="mt-6 text-center text-sm text-[var(--color-neutral-500)]">{caseStudies.note}</p>
   </div>
 </section>

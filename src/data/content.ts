@@ -50,19 +50,32 @@ export const caseStudies = {
   supporting: "Real campaign outcomes, not projections.",
   items: [
     {
-      client: "[CLIENT / INDUSTRY REQUIRED]",
-      challenge: "[CASE STUDY DATA REQUIRED]",
-      whatWeChanged: "[CASE STUDY DATA REQUIRED]",
-      result: "[VERIFIED CAMPAIGN RESULT REQUIRED]",
+      name: "e2i",
+      client: "Employment & Employability · Corporate / Institutional",
+      challenge:
+        "Promote multiple employment and career events to different audiences and industries across Singapore, while supporting e2i’s employment and employability initiatives.",
+      whatWeChanged:
+        "Developed dedicated social media ad campaigns for individual events, with audience targeting tailored to each campaign's requirements.",
+      result: {
+        value: "250+",
+        label: "Individual ad campaigns and counting",
+        detail: "Supporting e2i's event promotion efforts through ongoing campaign management.",
+      },
     },
     {
-      client: "[CLIENT / INDUSTRY REQUIRED]",
-      challenge: "[CASE STUDY DATA REQUIRED]",
-      whatWeChanged: "[CASE STUDY DATA REQUIRED]",
-      result: "[VERIFIED CAMPAIGN RESULT REQUIRED]",
+      name: "Inspire Immigration",
+      client: "Immigration Consultancy · Professional Services",
+      challenge:
+        "Build brand awareness and establish trust with prospective clients seeking Singapore PR and citizenship application services.",
+      whatWeChanged:
+        "Launched targeted advertising campaigns featuring client success stories and insights from the founder to showcase the consultancy’s expertise and application process.",
+      result: {
+        value: "$43.14",
+        label: "Cost per acquisition",
+        detail: "High-quality leads and good conversions in just 3 months.",
+      },
     },
   ],
-  note: "Case studies will be published once campaign data, screenshots and client approval are available.",
 };
 
 export const problem = {
