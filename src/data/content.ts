@@ -35,6 +35,50 @@ export const hero = {
 export const primaryMessage =
   "Meta Ads shouldn't just generate clicks. They should generate opportunities for your business.";
 
+// Logos, order and alt text match the "Brands we've worked with" carousel on envis8ge.com.
+// Files are the site's original assets, copied into public/brands/.
+export const brands = {
+  headline: "Brands we've worked with",
+  logos: [
+    { file: "stag-match-education", alt: "stag match education" },
+    { file: "katong", alt: "katong" },
+    { file: "7th-mile-coffeeshop", alt: "7th mile coffeeshop" },
+    { file: "acetek-college", alt: "acetek college" },
+    { file: "amiyaki", alt: "amiyaki" },
+    { file: "aquatiz", alt: "aquatiz" },
+    { file: "barry-m", alt: "barry m" },
+    { file: "bmw", alt: "bmw" },
+    { file: "don-quijote", alt: "don quijote" },
+    { file: "e2i", alt: "e2i" },
+    { file: "eduquest", alt: "eduquest" },
+    { file: "era", alt: "era" },
+    { file: "erc-institute", alt: "erc institute" },
+    { file: "harbourfront-centre", alt: "harbourfront centre" },
+    { file: "henney-bear", alt: "henney bear" },
+    { file: "ingrasys", alt: "ingrasys" },
+    { file: "inspire-immigration", alt: "inspire immigration" },
+    { file: "john-and-co-jewellery", alt: "john and co jewellery" },
+    { file: "jurong-point", alt: "jurong point" },
+    { file: "love-nils", alt: "love nils" },
+    { file: "maritime-port-authority", alt: "maritime port authority" },
+    { file: "maybank", alt: "maybank" },
+    { file: "music-solutions-academy", alt: "music solutions academy" },
+    { file: "my-chinese-steps", alt: "my chinese steps" },
+    { file: "psa", alt: "psa" },
+    { file: "rht-academy", alt: "rht academy" },
+    { file: "sothys-paris", alt: "sothys paris" },
+    { file: "spd", alt: "spd" },
+    { file: "spoonx", alt: "spoonx" },
+    { file: "stag-match-institute", alt: "stag match institute" },
+    { file: "sunflower-preschool", alt: "sunflower preschool" },
+    { file: "the-car-concept", alt: "the car concept" },
+    { file: "tokyo-soba", alt: "tokyo soba" },
+    { file: "u-china-travel", alt: "u china travel" },
+    { file: "vivocity", alt: "vivocity" },
+    { file: "vstecs", alt: "vstecs" },
+  ],
+};
+
 export const credibility = {
   headline: "What We Focus On",
   pills: ["Meta Ads Strategy", "Lead Generation", "Funnel Optimisation", "Campaign Management"],
