@@ -22,9 +22,15 @@ import CtaButton from "./CtaButton.astro";
       <p class="mt-5 text-base sm:text-lg text-[var(--color-neutral-600)] max-w-xl">
         {hero.supporting}
       </p>
-      <div class="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4">
+      <div class="mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
         <CtaButton href="#lead-form" variant="primary" size="sm">{hero.primaryCta}</CtaButton>
-        <CtaButton href="#lead-form" variant="secondary" size="sm">{hero.secondaryCta}</CtaButton>
+        <a
+          href="#lead-form"
+          class="group inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--color-neutral-800)] underline decoration-[var(--color-primary)] decoration-2 underline-offset-4 hover:text-[var(--color-primary-text)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-primary)] rounded-sm"
+        >
+          {hero.secondaryCta}
+          <span class="transition-transform duration-150 group-hover:translate-x-0.5" aria-hidden="true">&rarr;</span>
+        </a>
       </div>
     </div>
 

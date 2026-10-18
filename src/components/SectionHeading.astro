@@ -4,13 +4,14 @@ interface Props {
   headline: string;
   supporting?: string;
   align?: "left" | "center";
+  class?: string;
 }
 
-const { eyebrow, headline, supporting, align = "center" } = Astro.props;
+const { eyebrow, headline, supporting, align = "center", class: className = "max-w-3xl" } = Astro.props;
 const alignClass = align === "center" ? "text-center mx-auto" : "text-left";
 ---
 
-<div class={`max-w-3xl ${alignClass}`}>
+<div class={`${className} ${alignClass}`}>
   {eyebrow && (
     <p class="text-sm font-semibold uppercase tracking-wide text-[var(--color-primary-text)] mb-3">
       {eyebrow}

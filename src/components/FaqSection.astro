@@ -1,16 +1,11 @@
 ---
-import { faq, cta } from "../data/content";
+import { faq } from "../data/content";
 import SectionHeading from "./SectionHeading.astro";
-import CtaButton from "./CtaButton.astro";
 ---
 
 <section class="bg-[var(--color-background)]">
   <div class="mx-auto max-w-3xl px-4 sm:px-6 py-16 sm:py-20">
     <SectionHeading headline={faq.headline} />
-
-    <div class="mt-10 text-center">
-      <CtaButton href="#lead-form" variant="secondary" size="md">{cta.primary}</CtaButton>
-    </div>
 
     <!-- Native <details>/<summary> accordion: zero JavaScript. -->
     <div class="mt-10 divide-y divide-[var(--color-border)] border-y border-[var(--color-border)]">
@@ -25,10 +20,6 @@ import CtaButton from "./CtaButton.astro";
           <p class="mt-3 text-[var(--color-neutral-600)]">{item.answer}</p>
         </details>
       ))}
-    </div>
-
-    <div class="mt-10 text-center">
-      <CtaButton href="#lead-form" variant="primary" size="md">{cta.primary}</CtaButton>
     </div>
   </div>
 </section>

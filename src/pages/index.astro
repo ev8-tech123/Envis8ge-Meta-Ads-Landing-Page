@@ -1,8 +1,9 @@
 ---
-// Section order follows the SOP's "Final Recommended Page Flow" exactly:
+// Section order is based on the SOP's "Final Recommended Page Flow", with client-requested changes:
 // 01 Hero, 02 Credibility (preceded by the Brands logo carousel), 03 Case Studies, 04 Problem, 05 Approach,
-// 06 How It Works, 07 Funnel, 08 Comparison, 09 Testimonials,
-// 10 Who It's For, 11 FAQ, 12 Final CTA + Lead Form.
+// 06 How It Works, 07 Testimonials, 08 Comparison,
+// 09 Who It's For, 10 FAQ, 11 Final CTA + Lead Form.
+// (Funnel section removed; Testimonials moved ahead of Comparison.)
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
 import Hero from "../components/Hero.astro";
@@ -12,7 +13,6 @@ import CaseStudies from "../components/CaseStudies.astro";
 import ProblemSection from "../components/ProblemSection.astro";
 import ApproachSection from "../components/ApproachSection.astro";
 import HowItWorks from "../components/HowItWorks.astro";
-import FunnelSection from "../components/FunnelSection.astro";
 import ComparisonSection from "../components/ComparisonSection.astro";
 import TestimonialsSection from "../components/TestimonialsSection.astro";
 import WhoItsFor from "../components/WhoItsFor.astro";
@@ -32,9 +32,8 @@ import Footer from "../components/Footer.astro";
     <ProblemSection />
     <ApproachSection />
     <HowItWorks />
-    <FunnelSection />
-    <ComparisonSection />
     <TestimonialsSection />
+    <ComparisonSection />
     <WhoItsFor />
     <FaqSection />
     <FinalCta />

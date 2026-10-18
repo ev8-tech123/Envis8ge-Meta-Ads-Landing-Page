@@ -1,39 +1,39 @@
 // Single source of truth for landing page copy.
-// Content follows the Envis8ge Meta Ads Landing Page SOP verbatim where the SOP
+// Content follows the Envis8ge Ads Landing Page SOP verbatim where the SOP
 // provides exact wording. Sections requiring verified business data that has not
 // been supplied yet use bracketed placeholders (e.g. [CASE STUDY DATA REQUIRED])
 // per the SOP's content rule. Search this file for "REQUIRED" to find every gap.
 
 export const brand = {
   name: "Envis8ge",
-  siteTitle: "Envis8ge Meta Ads | Turn Meta Ads Into Qualified Leads",
+  siteTitle: "Envis8ge | Turn Your Ads Into Qualified Leads",
   metaDescription:
-    "Envis8ge helps businesses plan, launch and optimise Meta Ads campaigns designed to attract the right audience, generate better-quality leads and turn ad spend into measurable business opportunities.",
+    "Envis8ge helps businesses plan, launch and optimise Ads campaigns designed to attract the right audience, generate better-quality leads and turn ad spend into measurable business opportunities.",
 };
 
 export const cta = {
   primary: "Book a Free Consultation",
-  secondary: "Get Your Meta Ads Reviewed",
-  finalHeadline: "Ready to Make Your Meta Ads Work Harder for Your Business?",
+  secondary: "Get Your Ads Reviewed",
+  finalHeadline: "Ready to Make Your Ads Work Harder for Your Business?",
   finalSupporting:
     "Find out what's stopping your campaigns from generating better leads and what you can improve across your ads, targeting and conversion journey.",
-  finalCta: "Book Your Free Meta Ads Consultation",
+  finalCta: "Book Your Free Ads Consultation",
   assessmentSupporting:
-    "Not sure why your Meta Ads aren't performing? We'll look at your current setup and identify where improvements can be made.",
+    "Not sure why your ads aren't performing? We'll look at your current setup and identify where improvements can be made.",
 };
 
 export const hero = {
-  eyebrow: "Meta Ads Strategy & Lead Generation",
-  headline: "Turn Meta Ads Into a Consistent Source of Qualified Leads",
+  eyebrow: "Ads Strategy & Lead Generation",
+  headline: "Turn Ads Into a Consistent Source of Qualified Leads",
   supporting:
-    "Stop spending on ads that generate clicks but no real opportunities. Envis8ge helps businesses plan, launch and optimise Meta Ads campaigns designed to attract the right audience, generate better-quality leads and turn advertising spend into measurable business opportunities.",
+    "We plan, run and optimise Ads to get more leads and sales for your business.",
   primaryCta: cta.primary,
   secondaryCta: cta.secondary,
-  journey: ["Audience", "Creative", "Ad", "Landing Page", "Lead", "Qualified Lead", "Customer"],
+  journey: ["Audience", "Creative", "Ads", "Landing Page", "Lead", "Qualified Lead", "Customer"],
 };
 
 export const primaryMessage =
-  "Meta Ads shouldn't just generate clicks. They should generate opportunities for your business.";
+  "Ads shouldn't just generate clicks. They should generate opportunities for your business.";
 
 // Logos, order and alt text match the "Brands we've worked with" carousel on envis8ge.com.
 // Files are the site's original assets, copied into public/brands/.
@@ -81,11 +81,10 @@ export const brands = {
 
 export const credibility = {
   headline: "What We Focus On",
-  pills: ["Meta Ads Strategy", "Lead Generation", "Funnel Optimisation", "Campaign Management"],
   stats: [
     { value: "10+", label: "Years of Experience" },
-    { value: "$5,000+", label: "Ad Spend Managed" },
-    { value: "42+", label: "Industries Served" },
+    { value: "$1M+", label: "Ad Spend Managed" },
+    { value: "2000+", label: "Ad Campaigns Executed" },
   ],
 };
 
@@ -123,10 +122,10 @@ export const caseStudies = {
 };
 
 export const problem = {
-  headline: "Running Meta Ads But Not Getting Enough Leads?",
+  headline: "Not Getting Enough Leads?",
   points: [
     "You're getting clicks but not enquiries.",
-    "Your CPL keeps increasing.",
+    "Your cost per lead keeps increasing.",
     "You're attracting leads who aren't qualified.",
     "You're unsure which ads are actually working.",
     "Your campaigns depend on constant guesswork.",
@@ -134,12 +133,12 @@ export const problem = {
     "You're spending more without seeing better results.",
   ],
   reframe:
-    "The problem is not always Meta Ads itself. Results depend on the full journey:",
+    "The problem is not always the ads themselves. Results depend on the full journey:",
   journey: ["Offer", "Messaging", "Creative", "Audience", "Landing Page", "Follow-up"],
 };
 
 export const approach = {
-  headline: "We Build Meta Ads Around the Entire Customer Journey",
+  headline: "We Build Your Ads Around the Entire Customer Journey",
   supporting: "Envis8ge doesn't simply launch campaigns and leave them running.",
   steps: [
     {
@@ -182,12 +181,12 @@ export const approach = {
     {
       number: "05",
       title: "Tracking",
-      items: ["CTR", "CPC", "Landing page conversion rate", "CPL", "Lead quality"],
+      items: ["CTR", "CPC", "Landing page conversion rate", "Cost per lead", "Lead quality"],
     },
     {
       number: "06",
       title: "Optimisation",
-      items: ["Audience performance", "Creative performance", "Messaging", "CPL", "CTR", "Conversion rate", "Lead quality"],
+      items: ["Audience performance", "Creative performance", "Messaging", "Cost per lead", "CTR", "Conversion rate", "Lead quality"],
     },
   ],
 };
@@ -204,24 +203,16 @@ export const howItWorks = {
   ],
 };
 
-export const funnel = {
-  headline: "More Traffic Doesn't Always Mean More Sales",
-  supporting:
-    "A campaign can generate many clicks and still fail if the wrong people are clicking or the landing page doesn't convert.",
-  stages: ["Impressions", "Clicks", "Landing Page Visitors", "Leads", "Qualified Leads", "Customers"],
-};
-
 export const comparison = {
   headline: "Typical Approach vs the Envis8ge Approach",
   columnA: "Running Ads Without a Strategy",
   columnB: "The Envis8ge Approach",
   rows: [
-    { typical: "Post random creatives", envis8ge: "Clear campaign objective" },
+    { typical: "Post random creatives", envis8ge: "Strategic creative angles" },
     { typical: "Target audiences without a testing plan", envis8ge: "Audience testing" },
-    { typical: "Focus only on cheap CPL", envis8ge: "Strategic creative angles" },
+    { typical: "Focus only on cheap cost per lead", envis8ge: "Clear campaign objective" },
     { typical: "Send traffic to a weak landing page", envis8ge: "Conversion-focused landing pages" },
     { typical: "Judge success mainly by reach or impressions", envis8ge: "Proper tracking" },
-    { typical: "Keep spending without reviewing lead quality", envis8ge: "Lead-quality analysis and continuous optimisation" },
   ],
 };
 
@@ -282,7 +273,7 @@ export const testimonials = {
 };
 
 export const whoItsFor = {
-  headline: "Is Envis8ge Meta Ads Right for Your Business?",
+  headline: "Is Envis8ge Right for Your Business?",
   goodFitTitle: "Good Fit",
   goodFit: [
     "You already have a clear product or service.",
@@ -307,17 +298,17 @@ export const faq = {
     {
       question: "What does Envis8ge manage?",
       answer:
-        "We manage the full Meta Ads process: campaign strategy, setup, targeting, creative direction, ongoing optimisation, performance reporting and relevant recommendations for your landing page and funnel.",
+        "We manage the full advertising process: campaign strategy, setup, targeting, creative direction, ongoing optimisation, performance reporting and relevant recommendations for your landing page and funnel.",
     },
     {
-      question: "How much should I spend on Meta Ads?",
+      question: "How much should I spend on Ads?",
       answer:
-        "There's no single figure that works for every business. The recommended budget depends on your offer, industry, audience size and campaign goals — we'll walk through this in your consultation.",
+        "We recommend starting with a monthly ad budget of $1,000 to $3,000, then scaling gradually based on campaign performance, lead quality, and your business goals. The right budget will depend on your industry, target audience, offer, and objectives.",
     },
     {
       question: "How quickly will I see results?",
       answer:
-        "Performance depends on your offer, audience, creative, budget and existing funnel. We don't provide guaranteed timelines; our focus is on testing, tracking and optimising toward better results.",
+        "We should be able to get a gauge of ad performance within the first 30 days. During this period, we'll assess campaign data, audience response, cost per lead, and lead quality to identify opportunities for improvement. Performance and results will vary depending on your offer, budget, audience, and conversion process.",
     },
     {
       question: "Can you help if my ads are already running?",
@@ -325,11 +316,13 @@ export const faq = {
     },
     {
       question: "Do you create the ads?",
-      answer: "[CONFIRM ENVIS8GE'S CREATIVE PRODUCTION SCOPE — copy, static design, video editing, in-house vs. partner]",
+      answer:
+        "Yes. We help develop ad copy, messaging, creative angles, calls to action, and creative direction to support your campaigns. The exact scope of static design, video editing, and creative production will depend on the services agreed upon for your project.",
     },
     {
       question: "Do you build landing pages?",
-      answer: "[CONFIRM WHETHER LANDING PAGE BUILD IS INCLUDED, AN ADD-ON, OR RECOMMENDATION-ONLY]",
+      answer:
+        "Yes, we build conversion-focused landing pages designed to support your advertising campaigns, encourage enquiries, and help turn traffic into leads.",
     },
     {
       question: "Can you guarantee leads?",
@@ -340,42 +333,26 @@ export const faq = {
 };
 
 export const leadForm = {
-  headline: "Book Your Free Meta Ads Consultation",
+  headline: "Book Your Free Ads Consultation",
   supporting: cta.assessmentSupporting,
   submitLabel: cta.primary,
   sendingLabel: "Sending…",
   errorMessage: "Something went wrong sending your request. Please try again.",
+  // Exactly six fields, rendered in this order.
   fields: {
-    name: { label: "Name", type: "text", required: true },
-    company: { label: "Company Name", type: "text", required: true },
-    email: { label: "Email", type: "email", required: true },
-    phone: { label: "Contact Number", type: "tel", required: true },
-    website: { label: "Website / Social Media", type: "text", required: true },
-    offer: { label: "What service or product do you offer?", type: "text", required: true },
-    goal: { label: "What is your main advertising goal?", type: "text", required: true },
+    name: { label: "Name", type: "text", autocomplete: "name", required: true },
+    company: { label: "Company Name", type: "text", autocomplete: "organization", required: true },
+    email: { label: "Work Email", type: "email", autocomplete: "email", required: true },
+    phone: { label: "Contact Number", type: "tel", autocomplete: "tel", required: true },
+    website: { label: "Website / Social Media", type: "text", autocomplete: "url", required: true },
   } as const,
-  qualification: {
-    runningAds: {
-      label: "Are you currently running Meta Ads?",
-      options: ["Yes", "No", "Previously"],
-    },
-    budget: {
-      label: "Approximate monthly Meta Ads budget",
-      options: ["Not running yet", "Under $1,000", "$1,000–$3,000", "$3,000–$5,000", "$5,000+"],
-    },
-    challenge: {
-      label: "Biggest challenge",
-      options: [
-        "Not enough leads",
-        "CPL too high",
-        "Poor lead quality",
-        "Ads aren't converting",
-        "Unsure how to scale",
-        "Need help setting up",
-        "Other",
-      ],
-    },
+  budget: {
+    label: "Monthly Ads Budget",
+    placeholder: "Select an option",
+    options: ["Not running yet", "Under $1,000", "$1,000–$3,000", "$3,000–$5,000", "$5,000+"],
   },
+  websitePlaceholder: "e.g. yourcompany.com or instagram.com/yourbrand",
+  websiteHint: "Please enter a website or social media link, e.g. yourcompany.com",
 };
 
 // Shown inline in place of the form after a successful submission (no separate thank-you page).
@@ -383,7 +360,7 @@ export const thankYou = {
   headline: "Thanks — We've Received Your Request",
   points: [
     "Our team reviews your information.",
-    "We'll contact you regarding your Meta Ads goals.",
+    "We'll contact you regarding your advertising goals.",
     "We'll discuss your current challenges and suitable next steps.",
   ],
   // SOP: "If Envis8ge uses calendar booking, add a CTA such as: 'Choose a Time for Your Consultation.'"

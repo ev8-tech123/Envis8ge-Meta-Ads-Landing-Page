@@ -5,6 +5,8 @@ import { leadForm, thankYou } from "../data/content";
 // Not a secret — the browser posts to it directly, so it is visible in page source by design.
 const MAKE_WEBHOOK_URL = "https://hook.eu2.make.com/8hfq8ru44tksdw4iewoyqc8qw0xdssji";
 const HONEYPOT_FIELD = "nickname";
+// Website / Social Media: accepts bare domains and social links (e.g. instagram.com/brand), not just full https:// URLs.
+const WEBSITE_PATTERN = String.raw`\S*[^\s.]\.[^\s.]\S*`;
 
 const inputClass =
   "w-full rounded-[var(--radius-md)] border border-[var(--color-neutral-300)] bg-[var(--color-background)] px-4 py-3 text-base text-[var(--color-neutral-900)] placeholder:text-[var(--color-neutral-400)] focus:border-[var(--color-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]/30";
@@ -39,39 +41,27 @@ const fieldEntries = Object.entries(leadForm.fields);
             id={key}
             name={key}
             type={field.type}
+            autocomplete={field.autocomplete}
             required={field.required}
             class={inputClass}
+            {...(key === "website" && {
+              inputmode: "url",
+              pattern: WEBSITE_PATTERN,
+              placeholder: leadForm.websitePlaceholder,
+              title: leadForm.websiteHint,
+            })}
           />
         </div>
       ))}
 
-      <fieldset>
-        <legend class={labelClass}>{leadForm.qualification.runningAds.label}</legend>
-        <div class="flex flex-wrap gap-2">
-          {leadForm.qualification.runningAds.options.map((option) => (
-            <label class="cursor-pointer rounded-[var(--radius-pill)] border border-[var(--color-neutral-300)] px-4 py-2 text-sm has-[:checked]:border-[var(--color-primary)] has-[:checked]:bg-[var(--color-primary-tint)]/40 has-[:checked]:text-[var(--color-primary-text)]">
-              <input type="radio" name="runningAds" value={option} required class="sr-only" />
-              {option}
-            </label>
-          ))}
-        </div>
-      </fieldset>
-
       <div>
-        <label class={labelClass} for="budget">{leadForm.qualification.budget.label}</label>
+        <label class={labelClass} for="budget">
+          {leadForm.budget.label}
+          <span class="text-[var(--color-error)]"> *</span>
+        </label>
         <select id="budget" name="budget" required class={inputClass}>
-          <option value="" disabled selected>Select an option</option>
-          {leadForm.qualification.budget.options.map((option) => (
-            <option value={option}>{option}</option>
-          ))}
-        </select>
-      </div>
-
-      <div>
-        <label class={labelClass} for="challenge">{leadForm.qualification.challenge.label}</label>
-        <select id="challenge" name="challenge" required class={inputClass}>
-          <option value="" disabled selected>Select an option</option>
-          {leadForm.qualification.challenge.options.map((option) => (
+          <option value="" disabled selected>{leadForm.budget.placeholder}</option>
+          {leadForm.budget.options.map((option) => (
             <option value={option}>{option}</option>
           ))}
         </select>
@@ -136,18 +126,21 @@ const fieldEntries = Object.entries(leadForm.fields);
       return;
     }
 
-    // Field names expected by the Make.com scenario.
+    // Field names expected by the Make.com scenario: the six form fields plus attribution metadata.
+    const params = new URLSearchParams(window.location.search);
+    const utm = (key: string) => params.get(key)?.trim() ?? "";
     const payload = {
       name: value("name"),
       companyName: value("company"),
       email: value("email"),
       contactNumber: value("phone"),
       websiteSocial: value("website"),
-      serviceProduct: value("offer"),
-      advertisingGoal: value("goal"),
-      runningMetaAds: value("runningAds"),
       monthlyBudget: value("budget"),
-      biggestChallenge: value("challenge"),
+      utmSource: utm("utm_source"),
+      utmMedium: utm("utm_medium"),
+      utmCampaign: utm("utm_campaign"),
+      utmContent: utm("utm_content"),
+      utmTerm: utm("utm_term"),
       date: new Date().toISOString(), // UTC, e.g. 2026-09-26T04:43:05.123Z
     };
 
