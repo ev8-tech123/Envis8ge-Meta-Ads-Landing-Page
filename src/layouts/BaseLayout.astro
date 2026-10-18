@@ -28,7 +28,6 @@ const { title = brand.siteTitle, description = brand.metaDescription } = Astro.p
     <meta property="og:type" content="website" />
     <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
     <meta property="og:url" content={new URL(Astro.url.pathname, Astro.site)} />
-    <meta name="robots" content="noindex, nofollow" />
   </head>
   <body class="has-sticky-cta">
     <slot />
