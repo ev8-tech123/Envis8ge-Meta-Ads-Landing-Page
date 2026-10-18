@@ -1,13 +1,7 @@
 @import "tailwindcss";
-
-/* Self-hosted brand font (matches envis8ge.com, which loads Montserrat via next/font). */
-@font-face {
-  font-family: "Montserrat";
-  font-style: normal;
-  font-weight: 400 700;
-  font-display: swap;
-  src: url("https://fonts.gstatic.com/s/montserrat/v29/JTUSjIg1_i6t8kCHKm459Wlhzg.woff2") format("woff2");
-}
+/* Self-hosted brand font (matches envis8ge.com, which loads Montserrat via next/font).
+   Bundled from @fontsource-variable/montserrat so the files ship with the site. */
+@import "@fontsource-variable/montserrat/wght.css";
 
 /*
   Design tokens pulled directly from envis8ge.com's shipped CSS (--primary, --success,
@@ -16,7 +10,7 @@
   layout, markup or copy from the existing site.
 */
 @theme {
-  --font-sans: "Montserrat", "Montserrat Fallback", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Montserrat Variable", "Montserrat", "Montserrat Fallback", ui-sans-serif, system-ui, sans-serif;
 
   --color-background: #ffffff;
   --color-foreground: #000000;
