@@ -1,0 +1,30 @@
+---
+// "The Path We Build" card, moved out of the hero into its own band above the brands carousel.
+// Same card and step styling; steps run horizontally from lg up so the wide band doesn't leave a tall narrow list.
+import { hero } from "../data/content";
+---
+
+<section class="bg-[var(--color-background)]">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 pb-14 sm:pb-20">
+    <div class="rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-neutral-100)] p-5 sm:p-8">
+      <p class="text-xs font-semibold uppercase tracking-wide text-[var(--color-neutral-500)] mb-5">
+        The Path We Build
+      </p>
+      <ol class="flex flex-col gap-0 lg:flex-row lg:justify-between">
+        {hero.journey.map((step, i) => (
+          <li class="flex items-start gap-3 lg:flex-1 lg:flex-col lg:items-center lg:gap-2 lg:text-center">
+            <div class="flex flex-col items-center lg:w-full lg:flex-row">
+              <span class={`hidden lg:block h-px flex-1 ${i > 0 ? "bg-[var(--color-border)]" : ""}`} aria-hidden="true"></span>
+              <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[var(--color-primary)] text-black text-xs font-bold">
+                {i + 1}
+              </span>
+              <span class={`hidden lg:block h-px flex-1 ${i < hero.journey.length - 1 ? "bg-[var(--color-border)]" : ""}`} aria-hidden="true"></span>
+              {i < hero.journey.length - 1 && <span class="h-3 sm:h-4 w-px bg-[var(--color-border)] lg:hidden" aria-hidden="true"></span>}
+            </div>
+            <span class="leading-7 text-sm sm:text-base font-medium text-[var(--color-neutral-800)]">{step}</span>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </div>
+</section>

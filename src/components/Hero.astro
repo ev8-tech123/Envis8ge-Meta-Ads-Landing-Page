@@ -34,23 +34,19 @@ import CtaButton from "./CtaButton.astro";
       </div>
     </div>
 
-    <div class="rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-neutral-100)] p-5 sm:p-8">
-      <p class="text-xs font-semibold uppercase tracking-wide text-[var(--color-neutral-500)] mb-5">
-        The Path We Build
-      </p>
-      <ol class="flex flex-col gap-0">
-        {hero.journey.map((step, i) => (
-          <li class="flex items-start gap-3">
-            <div class="flex flex-col items-center">
-              <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[var(--color-primary)] text-black text-xs font-bold">
-                {i + 1}
-              </span>
-              {i < hero.journey.length - 1 && <span class="h-3 sm:h-4 w-px bg-[var(--color-border)]" aria-hidden="true"></span>}
-            </div>
-            <span class="leading-7 text-sm sm:text-base font-medium text-[var(--color-neutral-800)]">{step}</span>
-          </li>
-        ))}
-      </ol>
-    </div>
+    <!-- 1920x1080 web encode of "envis8ge lead gen (1).mp4" (original exceeds Cloudflare's 25 MiB asset limit);
+         aspect-video reserves the box so nothing shifts while it loads. -->
+    <video
+      class="aspect-video w-full rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-black"
+      src="/video/envis8ge-lead-gen-web.mp4"
+      width="1920"
+      height="1080"
+      controls
+      autoplay
+      muted
+      playsinline
+      preload="metadata"
+      aria-label="Envis8ge lead generation video"
+    ></video>
   </div>
 </section>
