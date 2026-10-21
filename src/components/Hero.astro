@@ -1,6 +1,7 @@
 ---
 import { hero } from "../data/content";
 import CtaButton from "./CtaButton.astro";
+import { withBase } from "../utils/withBase";
 ---
 
 <section class="relative overflow-hidden bg-[var(--color-background)]">
@@ -39,7 +40,7 @@ import CtaButton from "./CtaButton.astro";
          aspect-video reserves the box so nothing shifts while it loads. -->
     <video
       class="aspect-video w-full rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-black"
-      src="/video/envis8ge-lead-gen-web.mp4"
+      src={withBase("/video/envis8ge-lead-gen-web.mp4")}
       width="1920"
       height="1080"
       controls

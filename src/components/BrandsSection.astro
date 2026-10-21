@@ -3,6 +3,7 @@
 // tint background, edge fade and 140s right-to-left loop (sm = site's 40rem "tablet",
 // lg = its 64rem "desktop").
 import { brands } from "../data/content";
+import { withBase } from "../utils/withBase";
 
 // The list is rendered twice and the track slides by exactly half its width, so the
 // second copy lands where the first started and the loop has no visible jump.
@@ -23,7 +24,7 @@ const loop = [...brands.logos, ...brands.logos];
             aria-hidden={i >= brands.logos.length ? "true" : undefined}
           >
             <img
-              src={`/brands/${logo.file}.webp`}
+              src={withBase(`/brands/${logo.file}.webp`)}
               alt={i >= brands.logos.length ? "" : logo.alt}
               loading="lazy"
               decoding="async"

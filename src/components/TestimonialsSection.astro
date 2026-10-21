@@ -1,5 +1,6 @@
 ---
 import { testimonials } from "../data/content";
+import { withBase } from "../utils/withBase";
 
 // The list is rendered twice; the track slides left by exactly one copy (-50%),
 // so when the animation restarts the second copy sits where the first began — no jump.
@@ -20,7 +21,7 @@ const copies = [false, true]; // true = duplicate (hidden from assistive tech)
           {testimonials.images.map((image) => (
             <li class="marquee-item" style={`--ratio: ${image.width / image.height}`}>
               <img
-                src={image.src}
+                src={withBase(image.src)}
                 alt={isDuplicate ? "" : image.alt}
                 width={image.width}
                 height={image.height}
