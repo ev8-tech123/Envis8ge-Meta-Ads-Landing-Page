@@ -118,6 +118,34 @@ export const caseStudies = {
         detail: "High-quality leads and good conversions in just 3 months.",
       },
     },
+    {
+      name: "VSTECS",
+      client: "Technology Distribution · B2B / Corporate",
+      challenge:
+        "Increase brand visibility and promote technology solutions to relevant business audiences in Singapore's competitive IT market.",
+      whatWeChanged:
+        "Since 2018, we've worked closely with VSTECS to execute targeted digital advertising campaigns, refining audience targeting, messaging, and creatives to strengthen brand awareness and reach potential business customers.",
+      result: {
+        value: "1.46 Million",
+        label: "Accounts Reached",
+        detail:
+          "Achieved a total reach of 1,462,646 Meta accounts and generated over 8.38 million impressions across campaigns, strengthening VSTECS' brand visibility and digital presence.",
+      },
+    },
+    {
+      name: "ERC Institute",
+      client: "Private Education · Higher Education / International Students",
+      challenge:
+        "Attract prospective international students and generate enquiries for higher education programmes in Singapore while keeping advertising costs efficient.",
+      whatWeChanged:
+        "Developed targeted Meta advertising campaigns with tailored messaging and creatives for different international student markets, highlighting ERC Institute's educational opportunities and degree pathways.",
+      result: {
+        value: "273",
+        label: "Student Enquiries at $3.66 CPL",
+        detail:
+          "Generated 273 prospective student enquiries through targeted Meta advertising, supporting international student recruitment.",
+      },
+    },
   ],
 };
 
@@ -303,12 +331,12 @@ export const faq = {
     {
       question: "How much should I spend on Ads?",
       answer:
-        "We recommend starting with a monthly ad budget of $1,000 to $3,000, then scaling gradually based on campaign performance, lead quality, and your business goals. The right budget will depend on your industry, target audience, offer, and objectives.",
+        "We recommend starting with a monthly Ads budget of $1,000 to $3,000, then scaling from there based on campaign performance and your business goals. The ideal budget depends on your industry, target audience, and objectives.",
     },
     {
       question: "How quickly will I see results?",
       answer:
-        "We should be able to get a gauge of ad performance within the first 30 days. During this period, we'll assess campaign data, audience response, cost per lead, and lead quality to identify opportunities for improvement. Performance and results will vary depending on your offer, budget, audience, and conversion process.",
+        "We should be able to get a good gauge of your Ads performance within the first 30 days. During this period, we'll monitor key metrics such as cost per lead, audience response, and lead quality to identify what's working and where improvements can be made. Results may vary depending on your industry, budget, and offer.",
     },
     {
       question: "Can you help if my ads are already running?",
@@ -317,12 +345,12 @@ export const faq = {
     {
       question: "Do you create the ads?",
       answer:
-        "Yes. We help develop ad copy, messaging, creative angles, calls to action, and creative direction to support your campaigns. The exact scope of static design, video editing, and creative production will depend on the services agreed upon for your project.",
+        "Yes! We help create Ads tailored to your business, from developing compelling ad copy and messaging to designing creatives that capture attention and encourage action. Our goal is to make sure your ads not only look good but also reach the right audience and drive meaningful results.",
     },
     {
       question: "Do you build landing pages?",
       answer:
-        "Yes, we build conversion-focused landing pages designed to support your advertising campaigns, encourage enquiries, and help turn traffic into leads.",
+        "Yes, we do! We design and build conversion-focused landing pages that work alongside your advertising campaigns. Each landing page is created to communicate your offer clearly, build trust with potential customers, and encourage visitors to take action.",
     },
     {
       question: "Can you guarantee leads?",
