@@ -1,0 +1,12 @@
+// Worker wispy-brook-7a3f: serves https://metaads.envis8ge.com (Custom Domain, managed in the dashboard).
+// This config turns it into a redirect to https://envis8ge.com/leadgenads (worker.js) instead of the old static page.
+// Deploy from this folder: npx wrangler versions upload (test on the preview URL) -> npx wrangler versions deploy.
+// No routes or custom domains are listed, so wrangler leaves the existing metaads.envis8ge.com domain attached.
+// Rollback to the old landing page: npx wrangler rollback 870b010c-0a36-4267-9e9c-28f1dbccecb7 --name wispy-brook-7a3f
+{
+  "name": "wispy-brook-7a3f",
+  "main": "./worker.js",
+  "compatibility_date": "2026-09-01",
+  "workers_dev": true,
+  "preview_urls": true
+}

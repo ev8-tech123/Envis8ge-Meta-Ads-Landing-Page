@@ -1,12 +1,16 @@
-// Static-assets-only Worker for the landing page at https://envis8ge.com/leadgenads.
-// Routes (envis8ge.com/leadgenads and envis8ge.com/leadgenads/*) are deliberately NOT configured here yet:
-// they are added only after the workers.dev test URL has been verified and approved.
+// Worker envis8ge-leadgen: the landing page at https://envis8ge.com/leadgenads (static assets) plus a small
+// script that redirects the old https://envis8ge.com/leadgen URLs there (worker/leadgen.js).
+// Routes are managed in the Cloudflare dashboard, not here (none are listed, so `wrangler deploy` leaves them alone).
+// The zone route envis8ge.com/leadgen* sends both /leadgen and /leadgenads to this Worker.
 {
   "name": "envis8ge-leadgen",
+  "main": "./worker/leadgen.js",
   "compatibility_date": "2026-09-01",
   "workers_dev": true,
+  "preview_urls": true,
   "assets": {
     "directory": "./dist",
+    "binding": "ASSETS",
     // Serve dist/leadgenads/index.html at /leadgenads (no trailing slash); /leadgenads/ redirects to /leadgenads.
     "html_handling": "drop-trailing-slash",
     "not_found_handling": "none"
