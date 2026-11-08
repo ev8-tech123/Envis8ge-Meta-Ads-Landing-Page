@@ -32,6 +32,18 @@ export const hero = {
   journey: ["Audience", "Creative", "Ads", "Landing Page", "Lead", "Qualified Lead", "Customer"],
 };
 
+// Platforms shown under the hero CTAs (logos live in PlatformLogos.astro, keyed by `key`).
+export const platforms = {
+  label: "Ads across the platforms your customers use",
+  items: [
+    { key: "facebook", name: "Facebook" },
+    { key: "instagram", name: "Instagram" },
+    { key: "tiktok", name: "TikTok" },
+    { key: "linkedin", name: "LinkedIn" },
+    { key: "chatgpt", name: "ChatGPT" },
+  ],
+};
+
 export const primaryMessage =
   "Ads shouldn't just generate clicks. They should generate opportunities for your business.";
 

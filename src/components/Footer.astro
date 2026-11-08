@@ -1,10 +1,20 @@
 ---
 import { brand } from "../data/content";
+import { landingPageUrl } from "../utils/withBase";
 const year = new Date().getFullYear();
+const landingPageLabel = landingPageUrl.replace(/^https?:\/\//, "");
 ---
 
 <footer class="bg-[var(--color-background)] border-t border-[var(--color-border)]">
-  <div class="mx-auto max-w-6xl px-4 sm:px-6 py-8 text-center text-sm text-[var(--color-neutral-500)]">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 py-8 text-center text-sm text-[var(--color-neutral-500)] space-y-2">
+    <p>
+      <a
+        href={landingPageUrl}
+        class="font-semibold text-[var(--color-neutral-700)] underline decoration-[var(--color-primary)] decoration-2 underline-offset-4 hover:text-[var(--color-primary-text)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-primary)] rounded-sm"
+      >
+        {landingPageLabel}
+      </a>
+    </p>
     <p>&copy; {year} {brand.name}. All rights reserved.</p>
   </div>
 </footer>

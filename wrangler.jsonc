@@ -1,5 +1,5 @@
-// Static-assets-only Worker for the landing page at https://envis8ge.com/leadgen.
-// Routes (envis8ge.com/leadgen and envis8ge.com/leadgen/*) are deliberately NOT configured here yet:
+// Static-assets-only Worker for the landing page at https://envis8ge.com/leadgenads.
+// Routes (envis8ge.com/leadgenads and envis8ge.com/leadgenads/*) are deliberately NOT configured here yet:
 // they are added only after the workers.dev test URL has been verified and approved.
 {
   "name": "envis8ge-leadgen",
@@ -7,7 +7,7 @@
   "workers_dev": true,
   "assets": {
     "directory": "./dist",
-    // Serve dist/leadgen/index.html at /leadgen (no trailing slash); /leadgen/ redirects to /leadgen.
+    // Serve dist/leadgenads/index.html at /leadgenads (no trailing slash); /leadgenads/ redirects to /leadgenads.
     "html_handling": "drop-trailing-slash",
     "not_found_handling": "none"
   }
