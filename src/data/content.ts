@@ -112,7 +112,7 @@ export const caseStudies = {
       whatWeChanged:
         "Developed dedicated social media ad campaigns for individual events, with audience targeting tailored to each campaign's requirements.",
       result: {
-        value: "250+",
+        value: "1000+",
         label: "Individual ad campaigns and counting",
         detail: "Supporting e2i's event promotion efforts through ongoing campaign management.",
       },
